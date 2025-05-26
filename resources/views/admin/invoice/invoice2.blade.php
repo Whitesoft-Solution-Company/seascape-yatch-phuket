@@ -13,14 +13,14 @@
 
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js" integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.debug.js"></script> -->
-   
+
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
-    
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/polyfills.umd.js"></script> -->
 
 </head>
@@ -40,7 +40,7 @@
 
         }
 
-   
+
     /* * {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -64,7 +64,7 @@
      @media print {
        html, body {
      	width: 210mm;
-     	height: 297mm;        
+     	height: 297mm;
        }
        .main-page {
      	margin: 0;
@@ -92,7 +92,7 @@
         margin-left: -20px; */
         /* box-shadow: 0 4px 3px rgba(0, 0, 0, 0.4); */
     }
-    
+
 
     table tbody tr {
         vertical-align: middle !important;
@@ -111,15 +111,15 @@
         font-weight: normal;
     }
 
-    
+
 </style>
 
 <body>
-    
+
     <div class=" px-2 py-1 center" >
         <!-- <div class="sub-page" id="toPDF"> -->
 
-        
+
         <!-- <div class="html2pdf__page-break"></div> -->
         <div class="row">
 
@@ -127,7 +127,7 @@
             <img src="{{ asset('storage/images/logo.png') }}" alt="Logo" width="100px" class="rounded float-start">
             </div>
             <div class="col-7">
-                <h6>SEASCAPE YACHT LIPE <span class="eng"><em>by Khemtis Itinerary Co.,Ltd.</em></span></h6>
+                <h6>SEASCAPE YACHT PHUKET <span class="eng"><em>by Khemtis Itinerary Co.,Ltd.</em></span></h6>
                 <p class="mb-0">1168 หมู่ที่ 2 ตำบลปากน้ำ อำเภอละงู จังหวัดสตูล 91110</em></p>
                 <p class="mb-0">Office : 090-310-3019</em></p>
                 <p class="mb-0">E-mail : lipeyachtcharter@gmail.com</em></p>
@@ -292,7 +292,7 @@
                                 $totalchild = $inputprice_Child * $data->child;
                                 $total = $totaladult + $totalchild;
                             }
-                            
+
                             ?>
 
                             @if ($data->private_seat > 0)
@@ -330,13 +330,13 @@
                                 <td class="text-end text-danger fw-bold fs-5"> {{number_format($data->arrearage);}} </td>
                             </tr>
                             <tr>
-                            <?php 
+                            <?php
                                 if($data->arrearage == 0 ){
                                     $percen = 100;
                                 }else if ($data->pledge == 0 or $data->arrearage == $data->amount){
                                 	$percen = 0;
                                 }else{
-                                    $percen =  ($data->arrearage / $data->pledge)*100; 
+                                    $percen =  ($data->arrearage / $data->pledge)*100;
                                 }
 
                             ?>
@@ -346,7 +346,7 @@
                                       <strong style="color:red;">หมายเหตุ : {{ $data->note;}} </strong>
                                 </td>
                             </tr>
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -354,7 +354,7 @@
         </div>
 
 
-        
+
 
         <!-- <p class="text-start text-decoration-underline mt-3 mb-0"><em>ข้อกำหนดและเงื่อนไข</em></p>
         <p class="text-start m-0">1. คุณลูกค้าต้องสำรองที่นั่งก่อนเดินทาง 6 ชั่วโมง</p>
@@ -379,7 +379,7 @@
                 <span class="fw-light text-start eng">Day Trip : </span>
                 <span class="fw-light text-start eng">Departure time : 09.00 AM. Return time : 14.30 PM.</span>
             </p>
-            
+
         </div>
 
         <div class="mt-2">
@@ -418,7 +418,7 @@
         <!-- </div> -->
 
     </div>
-   
+
 
 
 </body>
@@ -431,10 +431,10 @@
 
 
 
-        
 
-        
 
-        
+
+
+
     </script>
 </html>

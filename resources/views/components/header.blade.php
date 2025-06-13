@@ -4,7 +4,7 @@
     <div class="container mx-auto flex justify-between items-center p-4">
         <!-- Logo -->
         <div class="text-2xl font-bold ">
-            <a href="{{route('home')}}" class="hover:text-yellow-500 text-white">Seascape Yacht Lipe</a>
+            <a href="{{route('home')}}" class="hover:text-yellow-500 text-white">Seascape Yacht Phuket</a>
         </div>
         <!-- Navigation Menu -->
         <nav class="space-x-4">
@@ -23,15 +23,15 @@
             <!-- ถ้าผู้ใช้ยังไม่ล็อกอิน ให้แสดงปุ่ม Login with Google -->
             <a href="{{ route('google.login') }}" class="btn  flex items-center text-black  rounded-lg px-2 py-2 whitespace-nowrap">
                 <img src="{{ asset('storage/images/google.png') }}" alt="Google Logo" class="w-5 h-5  ">
-            
+
             </a>
-            
-            
-            
-            
+
+
+
+
         @endif
-        
-            
+
+
         </nav>
     </div>
 </header>

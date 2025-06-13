@@ -76,7 +76,7 @@
                 <img src="{{ asset('storage/images/logo.png') }}" alt="Logo" width="100px" class="rounded float-start">
             </div>
             <div class="col-6">
-                <h5>SEASCAPE YACHT LIPE <span class="eng"><em>by Khemtis Itinerary Co.,Ltd.</em></span></h5>
+                <h5>SEASCAPE YACHT PHUKET <span class="eng"><em>by Khemtis Itinerary Co.,Ltd.</em></span></h5>
                 <p class="mb-0">1168 หมู่ที่ 2 ตำบลปากน้ำ อำเภอละงู จังหวัดสตูล 90110</em></p>
                 <p class="mb-0">Office : 090-310-3019</em></p>
                 <p class="mb-0">E-mail : lipeyachtcharter@gmail.com</em></p>
@@ -90,7 +90,7 @@
                 <h5 class="text-danger">CONFIRMATION</h5>
                 <?php
                 $qrcode = route('booking_detail', ['bid' => $data->id]);
-                
+
                 $url = 'https://api.qrserver.com/v1/create-qr-code/?data=' . $qrcode . '&amp;size=100x100';
                 ?>
                 <img src="<?= $url ?>" class="img-qr-code mb-1 border p-2" alt="...">
@@ -257,7 +257,7 @@
         <h4 style="color:red; padding-left: 10%;">หมายเหตุ :{{ $data->note }}</h4>
     </div>
    @if (!empty($data->payments[0]->slip))
- 
+
 
          <div style="display: flex; justify-content: center; align-items: center;">
             @if($paymentSlipUrl1 != '-')
@@ -266,12 +266,12 @@
             @if($paymentSlipUrl2 != '-')
                 <img src="{{ asset('storage/slip/' . $paymentSlipUrl2) }}" style="width: 50% !important; margin: 0 10px;" />
             @endif
-           
-           
 
 
-            
-           
+
+
+
+
         </div>
           @if($paymentSlipUrl3 != '-')
                 <img src="{{ asset('storage/slip/' . $paymentSlipUrl3) }}" style="width: 50% !important; margin: 0 10px;" />

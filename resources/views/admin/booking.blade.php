@@ -20,25 +20,25 @@
     color: black;
 }
     </style>
-   
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <div class="container mx-auto mt-5 xl:ml-64 lg:ml-64  ">
          <div class="flex justify-between items-center">
             <h1 class="text-2xl font-bold">Bookings</h1>
             <!-- ปุ่มเปิด modal สำหรับสร้าง package ใหม่ -->
-           
+
         </div>
         <div class="flex justify-between items-center">
 
                <form id="searchForm" method="GET" action="{{ route('admin.bookings') }}" class="mb-4">
                 <div class="flex flex-wrap gap-4">
                     <!-- Search Input -->
-                    <input type="text" name="search" placeholder="ค้นหา..." 
+                    <input type="text" name="search" placeholder="ค้นหา..."
                            class="border border-gray-300 rounded px-4 py-2"
                            value="{{ request('search') }}"
                             onchange="document.getElementById('searchForm').submit();">
 
-                
+
 
 
                     <!-- Submit Button -->
@@ -87,17 +87,17 @@
             <tbody>
                 @foreach ($bookings as $booking)
                     <tr style="
-    @if ($booking->booking_status === 'deleted') 
+    @if ($booking->booking_status === 'deleted')
         background-color: #ff5452; color: white;
-    @elseif ($booking->booking_status === 'confirmed') 
+    @elseif ($booking->booking_status === 'confirmed')
         background-color: #bdffbd; color: black;
-    @elseif ($booking->booking_status === 'checked_in') 
+    @elseif ($booking->booking_status === 'checked_in')
         background-color: #6efff3; color: black;
-    @elseif ($booking->booking_status === 'maintenance') 
+    @elseif ($booking->booking_status === 'maintenance')
         background-color: #d3d3d3; color: black;
-    @elseif ($booking->booking_status === 'unpaid') 
+    @elseif ($booking->booking_status === 'unpaid')
         background-color: #ababab; color: black;
-    @else 
+    @else
         background-color: white; color: black;
     @endif">
                         <td class="border px-4 py-2">{{ $booking->id }}</td>
@@ -106,8 +106,8 @@
                         <td class="border px-4 py-2">{{ $booking->package->name_boat }}</td>
                         <td class="border px-4 py-2">{{ $booking->name }}</td>
                         <td class="border px-4 py-2">{{ $booking->seat }}</td>
-                        <td class="border px-4 py-2">{{ $booking->agents->agent_name }}</td>
-                        <td 
+                        <td class="border px-4 py-2">{{ $booking->agents->agent_name ?? '' }}</td>
+                        <td
                             class="border px-4 py-2 font-bold"
                             style="
                                 @if (in_array($booking->statement_status, ['deposit', 'paid', 'full_payment', 'internal']))
@@ -152,14 +152,14 @@
                         <td class="border px-4 py-2">
                             <div class="flex items-center space-x-2">
                                 <!-- Button 1 -->
-                                <button 
-                                    onclick="openModal('{{ $booking->id }}')" 
+                                <button
+                                    onclick="openModal('{{ $booking->id }}')"
                                     class="btn btn-bordered-secondary waves-effect waves-light btn-sm"
                                     data-toggle="popover" data-trigger="hover">
                                     <img src="{{ asset('storage/images/2c2p.png') }}" alt="2c2p icon" width="250">
                                 </button>
 
-                             
+
                             </div>
 
                         </td>
@@ -167,19 +167,19 @@
                         <td>
                              <div class="flex items-center space-x-2">
                                 <!-- Button 1 -->
-                               
+
 
                                 <!-- Button 2 -->
-                                <button 
-                                    onclick="openModal({{ $booking->id }}, '{{ $booking->booking_status }}')" 
+                                <button
+                                    onclick="openModal({{ $booking->id }}, '{{ $booking->booking_status }}')"
                                     class="btn btn-bordered-secondary waves-effect waves-light p-2  rounded">
                                        <img src="https://img.icons8.com/?size=100&id=11324&format=png&color=33C11C"
                                                             alt="Print" width="100" >
                                 </button>
 
                                 <!-- Button 3 -->
-                                <button 
-                                    onclick="openEditBookingModal('{{ $booking->id }}')" 
+                                <button
+                                    onclick="openEditBookingModal('{{ $booking->id }}')"
                                     class="text-indigo-600 hover:text-red-800 p-2">
                                     แก้ไข
                                 </button>
@@ -205,7 +205,7 @@
 </div>
 
     </div>
-    
+
 
     <div class="modal hidden fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center z-50"
         id="2c2p">
@@ -420,8 +420,8 @@
                 </div>
                 <div id="extra_req" class=" bg-blue-200 p-4 rounded-md border-gray-300 mt-3">
                     <input type="hidden" id="totalextra">
-                   
-                    
+
+
                 </div>
                 <div class="flex justify-start mt-4 space-x-2">
                         <button type="button" onclick="addForm()"
@@ -591,7 +591,7 @@
                     <div class="grid grid-cols-1">
                         <div class="form-group">
                             <label for="discount" class="block text-sm font-medium text-gray-700">ส่วนลด</label>
-                            <input type="hidden" id="realdiscount" name="realdiscount" 
+                            <input type="hidden" id="realdiscount" name="realdiscount"
                                 class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                                 placeholder="ส่วนลด">
                             <input type="number" id="discount" name="discount"
@@ -694,7 +694,7 @@
                         @enderror
                         <input type="hidden" name="oldimg" id="oldimg">
                         <img src="" id="Slipimg" name="Slipimg" class="w-full mt-2 slip">
-                      
+
                     </div>
                     <div class="form-group">
                         <label for="inputslip2" id="labelslip2"
@@ -707,7 +707,7 @@
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
                         <input type="hidden" name="oldimg2" id="oldimg2">
-                      
+
                         <img src="" id="Slipimg2" name="Slipimg2" class="w-full mt-2 slip">
                     </div>
                      <div class="form-group">
@@ -721,7 +721,7 @@
                             <span class="text-red-500">{{ $message }}</span>
                         @enderror
                         <input type="hidden" name="oldimg3" id="oldimg3">
-                      
+
                         <img src="" id="Slipimg3" name="Slipimg3" class="w-full mt-2 slip">
                     </div>
 
@@ -756,7 +756,7 @@
     @endif
         </div>
     </div>
-  
+
 
     <script>
 
@@ -807,18 +807,18 @@
     <script>
         let currentSortColumn = null; // เก็บคอลัมน์ที่ถูกเรียงล่าสุด
         function removeRow(button) {
-         
-        
+
+
             const extraReqContainer = document.getElementById('extra_req');
             // เลือกทุก formGroup ใน extraReqContainer ที่มีคลาส grid
             const formGroups = extraReqContainer.querySelectorAll('.grid');
-            
+
 
             if (formGroups.length > 0) {
                 // ลบ formGroup ล่าสุด
                 extraReqContainer.removeChild(formGroups[button]);
             }
-          
+
 
         }
 
@@ -934,7 +934,7 @@
                 url: `/get-booking/${bookingId}`, // URL สำหรับดึงข้อมูล
                 type: 'GET',
                 success: function(data) {
-                   
+
                     if (data.booking.tel != '-') {
                         document.getElementById("notel").checked = true;
                     }
@@ -1021,13 +1021,13 @@
                     if (data.booking.code && data.booking.code.promotion_code) {
                         $('#promocode').val(data.booking.code.promotion_code);
                     } else {
-                        $('#promocode').val(''); 
+                        $('#promocode').val('');
                     }
 
                     $('#inputpay').val(data.booking.statement_status);
                     $('#discount').val(data.booking.percent_discount);
 
-                    
+
 
                     if(data.booking.package.prices[0].regular != data.booking.manual_amount){
                         $('#totalPage').val(data.booking.manual_amount);
@@ -1037,17 +1037,17 @@
                         $('#discountagent').val((data.booking.percent_discount / data.booking.package.prices[0]
                         .regular) * 100);
                     }
-                   
+
                     $('#total').val(data.booking.amount);
 
-                    
+
                     if(data.booking.payments[0]){
                         $('#datetime_transfer').val(data.booking.payments[0].transfer_time);
                         $('#account_number').val(data.booking.payments[0].account);
-                      
+
                         $('#oldimg').val(data.booking.payments[0].slip);
                         $('#Slipimg').attr('src', data.paymentSlipUrl1);
-                       
+
                     }
                      if(data.booking.payments[1]){
                         $('#oldimg2').val(data.booking.payments[1].slip);
@@ -1058,11 +1058,11 @@
                         $('#oldimg3').val(data.booking.payments[2].slip);
                         $('#Slipimg3').attr('src', data.paymentSlipUrl3);
                     }
-                    
+
                     $('#note').val(data.booking.note);
 
-                  
-                  
+
+
                     $('#editBookingModal').removeClass('hidden').show();
                 },
                 error: function(xhr, status, error) {
@@ -1097,11 +1097,11 @@
                     _token: $('meta[name="csrf-token"]').attr('content') // สำหรับ Laravel CSRF
                 },
                 success: function (response) {
-                
-                  
+
+
                    $('#totalPage').val(response.inputprice_Private);
                    calculateTotal();
-                 
+
                 },
                 error: function (xhr, status, error) {
                     console.error('Error:', error);
@@ -1117,7 +1117,7 @@
 
             priceInputs.forEach(input => {
                 const value = parseFloat(input.value);
-               
+
                 if (!isNaN(value)) {
                     total += value;
                 }
@@ -1208,7 +1208,7 @@
                 var extraseat = document.getElementById('extraseat').value*document.getElementById('priceextraseat').value;
                 var discountagentValue = document.getElementById('discountagent').value;
                 var discountagent = isNaN(parseFloat(discountagentValue)) ? 1 : parseFloat(discountagentValue);
-               
+
                 if(private_price != totalPage){
                     total = totalPage - ((totalPage * (discountagent / 100)))+extraseat;
                     document.getElementById('discount').value = totalPage * (discountagent / 100);
@@ -1279,7 +1279,7 @@
                 var totalPriceAdult = seatCountAdult * pricePerPersonAdult;
                 var totalPriceChild = seatCountChild * pricePerPersonChild;
                 sumprice = totalPriceAdult + totalPriceChild;
-                
+
             }
             // รับค่าจาก input ส่วนลดและราคาแพ็คเกจ
             var total = 0;
@@ -1293,19 +1293,19 @@
                      total = (sumprice - (sumprice * (discountagent / 100)))+extraseat;
                      document.getElementById('amountdiscountagent').value = sumprice * (discountagent / 100);
                 }
-               
-                
+
+
             } else {
                 total = sumprice;
             }
 
-          
+
             totaldiscount = totalPage * (discountagent / 100);
 
             // document.getElementById('totalPage').value = total > 0 ? total.toFixed(2) : 0;
              document.getElementById('total').value = total > 0 ? total.toFixed(2) : 0;
              document.getElementById('discount').value =   totaldiscount;
-          
+
         }
 
         function changetotalpage() {
